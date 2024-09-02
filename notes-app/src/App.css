@@ -1,0 +1,209 @@
+/*We'll give it a gray background and a margin to prevent the app from touching the browser window edges*/
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 20px;
+  background-color: rgb(250, 250, 250);
+}
+
+/*For mobile screens, we want our App Container to default to a single column layout, stacking our form and notes grid on top of each other.*/
+.app-container {
+  grid-template-columns: 1fr;
+}
+
+/* We'll add a media query specifying that for screens larger than 600 pixels, we'll use a two-column layout. We'll define this using grid-template-columns.
+The first column will be 200 pixels wide, accommodating the form. The second column will use 1fr, filling the remaining space. A 20-pixel gap will separate the two columns. */
+@media (min-width: 600px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+  }
+}
+
+/*we will use  grid-template-columns. Each grid item will have a minimum width of 250 pixels and can expand to fill available space. 
+We'll also set grid-auto-rows to ensure each row is a minimum of 250 pixels tall, accommodating notes of different sizes while maintaining a consistent row height.*/
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(250px, auto);
+  gap: 20px;
+}
+
+.notes-items {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d5bdaf;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notes-header button {
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+h2 {
+  margin: 0;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+textarea,
+input {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #d6ccc2;
+}
+
+.note-form button {
+  border-radius: 5px;
+  background-color: #e3d5ca;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.note-form button:hover {
+  background-color: #f5ebe0;
+  cursor: pointer;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.edit-buttons button {
+  flex: 1;
+}
+
+.edit-buttons button:last-of-type {
+  background-color: rgb(220, 89, 89);
+  color: rgb(255, 255, 255);
+}
+
+/* Landing page styling */
+.App-Landingpage {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  background-color: rgb(250, 250, 250);
+}
+
+.App-Landingpage-header {
+  text-align: center; 
+}
+
+.App-Landingpage-text {
+  font-size: 2.5rem;
+  margin-bottom: 20px; 
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Specific button colors */
+button:nth-of-type(1) {
+  /* Signup button */
+  background-color: #f5ebe0;
+}
+
+button:nth-of-type(2) {
+  /* Login button */
+  background-color: #e3d5ca;
+}
+
+button:hover {
+  opacity: 0.9; 
+}
+
+/* SignUp and Login page styling */
+.App-SignUp,
+.App-Login {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  background-color: rgb(250, 250, 250); 
+}
+
+.Signup-form,
+.Login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* Title styling */
+.Signup-text,
+.Login-text {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Form-Username-Text,
+.Form-Password-Text {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Form input styling */
+input {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #d6ccc2;
+}
+
+button {
+  background-color: #e3d5ca;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f5ebe0; 
+}
+
+/* Center form inside a flexbox container */
+.App-SignUp,
+.App-Login {
+  flex-direction: column;
+}
